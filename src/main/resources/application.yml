@@ -1,0 +1,8 @@
+#spring.application.name=nested
+
+spring:
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: localhost:9200
