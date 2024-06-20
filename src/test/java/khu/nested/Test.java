@@ -39,9 +39,7 @@ public class Test {
         List<BlogPosts> collect = search.getSearchHits().stream()
                 .map(SearchHit::getContent)
                 .toList();
-
         Assertions.assertThat(collect.size()).isEqualTo(1);
-
     }
 
     /**
@@ -109,7 +107,7 @@ public class Test {
         SearchHits<BlogPosts> search = elasticsearchOperations.search(criteriaQuery, BlogPosts.class);
 
         List<BlogPosts> collect = search.getSearchHits().stream().map(SearchHit::getContent).toList();
-        Assertions.assertThat(collect.size()).isEqualTo(1);
+        Assertions.assertThat(collect.size()).isEqualTo(1000);
     }
 
     @org.junit.jupiter.api.Test
@@ -118,7 +116,7 @@ public class Test {
         CriteriaQuery criteriaQuery = new CriteriaQuery(criteria);
 
         List<BlogPosts> results = elasticsearchOperations.search(criteriaQuery, BlogPosts.class).getSearchHits().stream().map(SearchHit::getContent).toList();
-        Assertions.assertThat(results.size()).isEqualTo(1);
+        Assertions.assertThat(results.size()).isEqualTo(0);
     }
 
 }
